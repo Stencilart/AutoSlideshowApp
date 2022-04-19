@@ -21,6 +21,12 @@
             android:layout_height="match_parent"
             android:id="@+id/imageView" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="パーミッション"
+            android:id="@+id/button"/>
+
     </RelativeLayout>
 
     <LinearLayout
@@ -30,6 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center">
+
 
         <Button
             android:id="@+id/prev_button"
