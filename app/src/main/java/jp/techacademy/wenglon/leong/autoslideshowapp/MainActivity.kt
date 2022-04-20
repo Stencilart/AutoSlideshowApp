@@ -28,14 +28,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button.setOnClickListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // パーミッションの許可状態を確認する
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 // 許可されている
                 getContentsInfo()
             } else {
-                getContentsInfo()
                 // 許可されていないので許可ダイアログを表示する
                 requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSIONS_REQUEST_CODE)
             }
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         } else {
             getContentsInfo()
         }
-        }
+
 
         prev_button.setOnClickListener(this)
         play_button.setOnClickListener(this)
@@ -56,7 +54,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getContentsInfo()
                 } else {
-                    getContentsInfo()
+                    requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSIONS_REQUEST_CODE)
                 }
         }
     }
